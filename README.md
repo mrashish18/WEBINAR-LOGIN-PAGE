@@ -15,13 +15,13 @@ This is a fully responsive and animated HTML form designed for webinar signups. 
 ## 📸 Screenshots
 
 ### 📝 Registration Form
-![Registration Form](./preview1.png)
+![Registration Form](./preview1.png.png)
 
 ### ✅ Form Submitted
-![Form Submitted](./preview2.png)
+![Form Submitted](./preview2.png.png)
 
 ### 🙏 Thank You Page
-![Thank You Page](./preview3.png)
+![Thank You Page](./preview3.png.png)
 
 
 ## 🚀 Live Demo
