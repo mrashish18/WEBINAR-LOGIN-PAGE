@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webinar Registration</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding-top: 100px;
+      animation: fadeInBody 1.5s ease-in;
+      color: #fff;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .register-btn {
+      padding: 14px 30px;
+      font-size: 1.3rem;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .register-btn:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(33, 136, 56, 0.7);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(40, 167, 69, 0.5); }
+      50% { box-shadow: 0 0 20px rgba(40, 167, 69, 0.9); }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+      animation: fadeInModal 0.5s ease;
+    }
+
+    @keyframes fadeInModal {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 8% auto;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+      animation: slideUp 0.6s ease;
+      color: #333;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      padding: 12px 25px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🌌 Background Video -->
+  <video autoplay muted loop class="bg-video">
+    <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- 🔲 Dark Overlay -->
+  <div class="overlay"></div>
+
+  <!-- 📋 Main Content -->
+  <div class="content">
+    <h1>Join Our Free Webinar</h1>
+    <p>Limited slots available – Register now!</p>
+    <button class="register-btn" onclick="openModal()">Register Now</button>
+  </div>
+
+  <!-- 📝 Modal Form -->
+  <div class="modal" id="registrationModal">
+    <div class="modal-content">
+      <h2>Webinar Registration</h2>
+      <form id="registrationForm">
+        <input type="text" placeholder="Full Name" name="name" required />
+        <input type="email" placeholder="Email Address" name="email" required />
+        <input type="tel" placeholder="Phone Number" name="phone" required />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+
+  <!-- ✅ Script -->
+  <script>
+    const modal = document.getElementById("registrationModal");
+
+    function openModal() {
+      modal.style.display = "block";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    document.getElementById("registrationForm").onsubmit = function(e) {
+      e.preventDefault();
+      // ✅ Redirect to Thank You page
+      window.location.href = "THANKYOU.html";  // Change to your actual Thank You page path
+    }
+  </script>
+
+</body>
+</html>
